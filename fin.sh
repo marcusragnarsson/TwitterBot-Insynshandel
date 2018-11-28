@@ -8,10 +8,3 @@
   grep -v '2018' |
   grep -v 'SE00' |
   python3 -c 'import html, sys; [print(html.unescape(l), end="") for l in sys.stdin]' > insyn.txt
-#FIRST NORTH SWEDEN
-#Utanf&#246;r handelsplats
-#CBOE EUROPE - CXE ORDER BOOKS
-#NASDAQ STOCKHOLM AB
-#SPOTLIGHT STOCK MARKET
-#NORDIC MTF
-#OMX NORDIC EXCHANGE STOCKHOLM AB
