@@ -7,9 +7,11 @@ import time
 import math
 from  twitterAuth import *
 import tweepy
+from os import environ
 
-auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+
+auth = tweepy.OAuthHandler(environ["CONSUMER_KEY"], environ["CONSUMER_SECRET"])
+auth.set_access_token(environ["ACCESS_KEY"], environ["ACCESS_SECRET"])
 api = tweepy.API(auth)
 def makeTweet(tweet):
     #tweet[]
