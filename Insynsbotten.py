@@ -5,9 +5,8 @@ import sys
 import hashlib
 import time
 import math
-from  twitterAuth import *
 import tweepy
-from os import environ
+import os
 
 
 auth = tweepy.OAuthHandler(environ["CONSUMER_KEY"], environ["CONSUMER_SECRET"])
