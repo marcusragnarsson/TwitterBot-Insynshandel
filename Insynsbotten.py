@@ -76,7 +76,7 @@ def getData(lasttweet):
             print (index)
             if index == 0:
                 return []
-            return datasets[-j:]
+            return datasets[j:]
 
 
     print("Hittade INTE last tweet")
