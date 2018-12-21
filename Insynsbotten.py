@@ -27,7 +27,7 @@ def makeTweet(tweet):
 
     print(stringbuilder)
     try:
-        #api.update_status(status=stringbuilder)
+        api.update_status(status=stringbuilder)
         print(stringbuilder)
     except tweepy.error.TweepError :
         print('error:')
