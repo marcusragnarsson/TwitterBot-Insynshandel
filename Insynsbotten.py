@@ -1,11 +1,11 @@
 from contextlib import closing
 from bs4 import BeautifulSoup
-from sim import simple_get
+from .sim import simple_get
 import sys
 import hashlib
 import time
 import math
-from  twitterAuth import *
+from  .twitterAuth import *
 import tweepy
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
