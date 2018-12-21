@@ -6,7 +6,7 @@ import hashlib
 import time
 import math
 import tweepy
-import os
+from os import environ
 
 
 auth = tweepy.OAuthHandler(environ["CONSUMER_KEY"], environ["CONSUMER_SECRET"])
