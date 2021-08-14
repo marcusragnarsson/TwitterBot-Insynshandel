@@ -18,13 +18,19 @@ def makeTweet(tweet):
     close = ""
     if tweet["Närstående"] == "Ja":
         close = "Närstående till "
+    total = (float(tweet["Pris"].replace(',','.'))*int(tweet["Volym"]))
+    total = "{:0,.2f} SEK".format(float(total))
 
-    stringbuilder = ("[" +  tweet['Handelsplats'] + "]" + "[" + tweet["Utgivare"] + "] " + close +
+    stringbuilder = ( "[" + tweet["Utgivare"] + "] " + close +
          tweet["Befattning"]  + " "+ tweet["Person i ledande ställning"] +
          " Rapporterar " + tweet["Karaktär"] + " av " + tweet["Instrumentnamn"] + "[" +
           tweet["Volym"] + "]@[" + tweet["Pris"] + "] Totalt: " +
-           str(round((float(tweet["Pris"].replace(',','.'))*int(tweet["Volym"])/1000),2)) +
-           " TKR. Läs mer här: https://marknadssok.fi.se" + tweet["Detaljer"])
+            + str(total) +
+           ".  Läs mer här: https://marknadssok.fi.se" + tweet["Detaljer"])
+
+
+    
+   
 
     print(stringbuilder)
     try:
