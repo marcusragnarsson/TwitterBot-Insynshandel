@@ -25,7 +25,7 @@ def makeTweet(tweet):
          tweet["Befattning"]  + " "+ tweet["Person i ledande ställning"] +
          " Rapporterar " + tweet["Karaktär"] + " av " + tweet["Instrumentnamn"] + "[" +
           tweet["Volym"] + "]@[" + tweet["Pris"] + "] Totalt: " +
-            + str(total) +
+            + total +
            ".  Läs mer här: https://marknadssok.fi.se" + tweet["Detaljer"])
 
 
