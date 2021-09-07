@@ -28,7 +28,7 @@ def makeTweet(tweet):
         print(tweet["Volym"])
         print(type(tweet["Pris"]))
         print(type(tweet["Volym"]))
-    stringbuilder = ( "[" + tweet["Utgivare"] + "] " + close +
+    stringbuilder = ( "[" + tweet["Emittent"] + "] " + close +
         tweet["Befattning"]  + " "+ tweet["Person i ledande ställning"] +
         " rapporterar " + tweet["Karaktär"].lower() + " av " + tweet["Instrumentnamn"] + "[" +
         tweet["Volym"] + "]@[" + tweet["Pris"] + "] Totalt: " +
