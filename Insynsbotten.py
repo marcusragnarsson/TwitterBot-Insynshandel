@@ -6,6 +6,7 @@ import hashlib
 import time
 import math
 import tweepy
+import unicodedata
 from os import environ, error
 
 
@@ -73,17 +74,14 @@ def getData(lasttweet):
     url = ("https://marknadssok.fi.se/publiceringsklient/?Page=1")
     raw_html = simple_get(url)
     soup = BeautifulSoup(raw_html, 'html.parser')
-
-    #Find Table
     table = soup.find("table", attrs={"class":"table"})
-    #Find head
     head = [th.get_text() for th in table.find("tr").find_all("th")]
-    head = [w.replace('\n', 'Detaljer') for w in head]
-    #for row in table.find_all("tr")[1:]:
+    head = [th.get_text() for th in table.find("tr").find_all("th")]
     datasets = [dict(zip(head,[td.get_text() if not td.a else td.a['href'] for td in row.find_all("td")])) for row in table.find_all('tr')[1:]]
-    #datasets.append(dataset)
+    for dic in datasets:
+        for k,v in dic.items():
+            dic.update({k :unicodedata.normalize("NFKD", v)})
     datasets.reverse()
-
 
     index = 0
     #Check if last tweet
