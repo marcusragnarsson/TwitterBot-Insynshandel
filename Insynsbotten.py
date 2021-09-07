@@ -23,7 +23,7 @@ def makeTweet(tweet):
         total = (float(tweet["Pris"].replace(',','.'))*int(tweet["Volym"]))
         total = "{:0,.2f}".format(float(total))
     except ValueError:
-        total = tweet["Pris"]*tweet["Volym"]
+        total = float(tweet["Pris"])*int(tweet["Volym"])
 
     stringbuilder = ( "[" + tweet["Utgivare"] + "] " + close +
         tweet["Befattning"]  + " "+ tweet["Person i ledande ställning"] +
