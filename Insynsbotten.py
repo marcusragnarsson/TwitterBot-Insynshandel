@@ -6,7 +6,7 @@ import hashlib
 import time
 import math
 import tweepy
-from os import environ
+from os import environ, error
 
 
 auth = tweepy.OAuthHandler(environ["CONSUMER_KEY"], environ["CONSUMER_SECRET"])
@@ -14,23 +14,27 @@ auth.set_access_token(environ["ACCESS_KEY"], environ["ACCESS_SECRET"])
 api = tweepy.API(auth)
 def makeTweet(tweet):
     #tweet[]
+    
     stringbuilder = ""
     close = ""
     if tweet["Närstående"] == "Ja":
         close = "Närstående till "
-    total = (float(tweet["Pris"].replace(',','.'))*int(tweet["Volym"]))
-    total = "{:0,.2f}".format(float(total))
+    try:
+        total = (float(tweet["Pris"].replace(',','.'))*int(tweet["Volym"]))
+        total = "{:0,.2f}".format(float(total))
+    except ValueError:
+        total = tweet["Pris"]*tweet["Volym"]
 
     stringbuilder = ( "[" + tweet["Utgivare"] + "] " + close +
-         tweet["Befattning"]  + " "+ tweet["Person i ledande ställning"] +
-         " rapporterar " + tweet["Karaktär"].lower() + " av " + tweet["Instrumentnamn"] + "[" +
-          tweet["Volym"] + "]@[" + tweet["Pris"] + "] Totalt: " +
+        tweet["Befattning"]  + " "+ tweet["Person i ledande ställning"] +
+        " rapporterar " + tweet["Karaktär"].lower() + " av " + tweet["Instrumentnamn"] + "[" +
+        tweet["Volym"] + "]@[" + tweet["Pris"] + "] Totalt: " +
             total + " " +  tweet["Valuta"] +
-           ".  Läs mer här: https://marknadssok.fi.se" + tweet["Detaljer"])
-
+        ".  Läs mer här: https://marknadssok.fi.se" + tweet["Detaljer"])
 
     
-   
+        
+    
 
     print(stringbuilder)
     try:
