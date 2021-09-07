@@ -22,7 +22,7 @@ def makeTweet(tweet):
     try:
         print(tweet["Pris"])
         print(tweet["Volym"])
-        total = (float(tweet["Pris"].replace(',','.'))*int(tweet["Volym"]))
+        total = (float(tweet["Pris"].replace(',','.'))*int(tweet["Volym"].replace(' ','')))
         total = "{:0,.2f}".format(float(total))
     except ValueError:
         total = float(tweet["Pris"])*int(tweet["Volym"])
