@@ -15,7 +15,7 @@ auth.set_access_token(environ["ACCESS_KEY"], environ["ACCESS_SECRET"])
 api = tweepy.API(auth)
 def makeTweet(tweet):
     #tweet[]
-    tweet["Volym"].replace("\xa","")
+   
     stringbuilder = ""
     close = ""
     if tweet["Närstående"] == "Ja":
