@@ -20,7 +20,10 @@ def makeTweet(tweet):
     if tweet["Närstående"] == "Ja":
         close = "Närstående till "
     try:
-        
+        print(tweet["Pris"])
+        print(tweet["Volym"])
+        print(type(tweet["Pris"]))
+        print(type(tweet["Volym"]))
         total = (float(tweet["Pris"].replace(',','.'))*float(tweet["Volym"].replace(' ','')))
         total = "{:0,.2f}".format(float(total))
     except ValueError:
