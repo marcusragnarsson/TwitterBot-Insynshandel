@@ -23,14 +23,14 @@ def makeTweet(tweet):
         print(tweet["Pris"])
         print(tweet["Volym"])
         print(float(tweet["Pris"].replace(',','.')))
-        print(float(tweet["Volym"].replace(' ','')))
-        total = (float(tweet["Pris"].replace(',','.'))*float(tweet["Volym"].replace(' ','')))
+        print(float(tweet["Volym"].replace(" ","")))
+        total = (float(tweet["Pris"].replace(',','.'))*float(tweet["Volym"].replace(" ","")))
         total = "{:0,.2f}".format(float(total))
     except ValueError:
         print(tweet["Pris"])
         print(tweet["Volym"])
-        print(type(tweet["Pris"]))
-        print(type(tweet["Volym"]))
+        print(float(tweet["Pris"].replace(',','.')))
+        print(float(tweet["Volym"].replace(" ","")))
     stringbuilder = ( "[" + tweet["Emittent"] + "] " + close +
         tweet["Befattning"]  + " "+ tweet["Person i ledande ställning"] +
         " rapporterar " + tweet["Karaktär"].lower() + " av " + tweet["Instrumentnamn"] + "[" +
